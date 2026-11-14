@@ -268,3 +268,10 @@ void PitchPilotProcessor::applyPreset (const pp::PresetValue* values, std::size_
     for (std::size_t i = 0; i < count; ++i)
         setParamValue (values[i].id, values[i].value);
 }
+
+//==============================================================================
+// This is what the plugin host (FL Studio) calls to create the plugin.
+juce::AudioProcessor* JUCE_CALLTYPE createPluginFilter()
+{
+    return new PitchPilotProcessor();
+}
